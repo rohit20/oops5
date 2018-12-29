@@ -1,0 +1,85 @@
+Lab 5. Consolidated Exercise
+
+1.1. There are two types of employees in our organization: Regular and Contract.
+Regular employees are on rolls of the organization and are entitled for various
+allowances and benefits like HRA, Conveyance, Medical reimbursements, LTA and
+Special allowances, along with basic salary. Regular Employee is also entitled for 10
+days of CL and 30 days of PL every year. The contract employees on the other hand
+are entitled for Basic and Conveyance. Contract Employee is also allotted 1 day of
+leave every month and no other. As per government rules, PF is 12 % of Basic and is
+deducted from all employees (employers contribution being 13 %). Tax is deducted
+from all employees as applicable depending on the gross salary of the employees.
+Design the class hierarchy. You may have additional classes also as applicable.
+
+Answer:
+
+ class Regular
+     {
+         public float HRA, Conveyance, Medicalreimbursements, LTA, Specialallowances,gross;
+         public float gross,Basic,pf; 
+         public float Netsalary,Deduction;
+          void regularPF(int salary)
+           {
+             
+             Basic=salary;
+             pf=(Basic*12)/100;
+             gross=Basic+HRA+Conveyance+Medicalreimbursements+LTA+Special allowances //It calculate total gross salary of regular employee;
+           }
+ 
+           void regLeave()
+           {
+            int cl=10.pl=30;
+           }
+
+           void regularTaxDeduction()
+           {
+           
+              Deduction=gross-pf;//Tax Deduction 
+              Netsalary=Gross-Deduction;//Net salary 
+           }
+            
+          
+     }
+     class Contract
+     {
+      public float Basic,Conveyance
+      public float int pf,gross;
+      public float Netsalary,Deduction;
+          void contractPF(int salary)
+          {
+             Basic=salary;
+             pf=(Basic*12)/100;
+             gross=Basic+Conveyance;//Calculates Gross Salary Of Contract Employees
+          }
+          void contractTaxDeduction()
+          {
+              Deduction=gross-pf;//Tax Deduction 
+              Netsalary=Gross-Deduction;//Net salary 
+          }
+          void conLeave()
+          {
+             int leave=1,totalLeave;
+             totalLeave=1*12;  /* 1 day leave every month,so total leave of 1 year  
+                                will be 12 for contract employees 
+          }
+     }
+ 
+     class Organization 
+     {
+           public static void main(String args[])
+           { 
+               Regular r=new Regular();
+               Scanner sc=new Scanner(System.in);
+               System.out.println("Enter Salary");
+               rsalary=sc.nextInt();
+               r.regularPF(rsalary);
+               r.regLeave();
+               r.regularTaxDeduction();
+               Contract c=new Contract();
+               System.out.println("Enter Salary");
+               csalary=sc.nextInt();
+               c.contractPF(csalary);
+               c.conLeave();
+               c.contractTaxDeduction();
+           }
+     }             
